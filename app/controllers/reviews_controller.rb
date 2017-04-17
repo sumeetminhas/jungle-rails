@@ -1,6 +1,10 @@
 class ReviewsController < ApplicationController
   before_filter :require_login
 
+def show
+    @reviews = Review.all.where(user_id: params[:user_id])
+  end
+
   def create
     @product = Product.find(params[:product_id])
     @review = @product.reviews.create(review_params)

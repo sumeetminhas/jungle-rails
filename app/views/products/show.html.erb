@@ -67,14 +67,14 @@
       <div class="product-review panel-body">
         <p> Rating: <%= review.rating %>/5</p>
         <p><%= review.description %></p>
-        <% if current_user.id == review.user_id %>
+        <% if current_user && current_user.id == review.user_id %>
           <%= button_to "Delete", review, method: :delete %>
         <% end %>
 
-    </div>
-    <% end %>
-    <% else %>
+      </div>
+      <% end %>
+      <% else %>
         <p> No reviews yet! </p>
       <% end %>
-    </article>
-  </section>
+  </article>
+</section>
